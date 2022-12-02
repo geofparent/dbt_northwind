@@ -1,10 +1,10 @@
 with source as (
 
-    select * from {{ source('northwind', 'customer') }}
+    select * from {{ source('northwind', 'shippers') }}
 )
 
 
-select
+select 
     *,
     current_timestamp() as insert_timestamp
 from source
