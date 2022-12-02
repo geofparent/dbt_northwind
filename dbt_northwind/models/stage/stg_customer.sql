@@ -1,26 +1,8 @@
-WITH source AS (
+with source as (
 
-  SELECT * FROM {{ source('northwind','customer')}}
+    select * from {{ source('northwind', 'customer') }}
 )
-
-SELECT
-  id,
-  company,
-  last_name,
-  first_name,
-  email_address,
-  job_title,
-  business_phone,
-  home_phone,
-  mobile_phone,
-  fax_number,
-  address,
-  city,
-  state_province,
-  zip_postal_code,
-  country_region,
-  web_page,
-  notes,
-  attachments,
-  current_timestamp() AS insertion_timestamp
-FROM source
+select
+    *,
+    current_timestamp() as ingestion_timestamp
+from source
