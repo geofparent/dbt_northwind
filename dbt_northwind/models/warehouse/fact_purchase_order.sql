@@ -1,11 +1,3 @@
-{{ config(
-    materialized='table',
-    partition_by={
-      "field": "creation_date",
-      "data_type": "date"
-    }
-)}}
-
 with source as(
     select
         c.id as customer_id,
